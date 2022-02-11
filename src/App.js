@@ -28,6 +28,7 @@ function App() {
   // }, []);
 
   return (
+    <>
     <div>
       <div className="head">
       <img className="logo" src="images/foodie.png" alt="" />
@@ -63,6 +64,10 @@ function App() {
         
         </div>
     </div>
+      <footer>
+      Created By <span> Nitish </span>| &copy; 2022 All rights reserved. 
+      </footer>
+      </>
   );
 }
 

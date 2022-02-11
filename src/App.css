@@ -85,4 +85,14 @@
   color: orange;
   border: 1px solid orange;
 }
+footer{
+    background: #111;
+    padding: 20px 23px;
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  footer span{
+    color: orange;
+  }
 
