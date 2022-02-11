@@ -51,7 +51,7 @@
   
     margin: 2px;
     padding: 2px;
-    width: 130px;
+    width: 150px;
     height: 230px;
     font-size: 1px;
     align-items: center;
@@ -78,5 +78,11 @@
     border-radius: 0;
     margin: "5px 0 5px 0";
 
+}
+.form-control:focus{
+  background: none;
+  box-shadow: none;
+  color: orange;
+  border: 1px solid orange;
 }
 
