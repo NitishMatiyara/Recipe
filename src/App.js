@@ -17,7 +17,7 @@ function App() {
 
   const Placeholder=()=>{
     return <div>
-      <img style={{opacity:"0.3"}} src="images/bg.jpg"/>
+      <img style={{opacity:"0.3", maxWidth:"100vw"}} src="images/bg.jpg"/>
     </div> 
   }
     
