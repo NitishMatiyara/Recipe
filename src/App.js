@@ -1,23 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Foodcard from "./Components/Foodcard";
 
 function App() {
+  const [food, setFood] = useState("");
+  const [recipe, setRecipe] = useState([]);
+
+  function apiGet() {
+    fetch(`https://api.edamam.com/search?q=${food}&app_id=44d2a0c6&app_key=f43f9ca8331ee0a958444f39a5a59b4c`)
+      .then((response) => response.json())
+      .then((data) => setRecipe(data.hits))
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+
+  const Placeholder=()=>{
+    return <div>
+      <img style={{opacity:"0.3"}} src="images/bg.jpg"/>
+    </div> 
+  }
+    
+     
+  
+  // useEffect(() => {
+  //   apiGet()
+  // }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="head">
+      <img className="logo" src="images/foodie.png" alt="" />
+      <nav className="navbar navbar-light" >
+      <div className="container-fluid">
+          <a className="navbar-brand">Find Recipe</a>
+          <form className="d-flex">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+            
+              onChange={(e) => setFood(e.target.value)}
+              value={food}
+            />
+            <button
+              className="btn btn-outline-success"
+              type="button"
+              onClick={apiGet}
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+      </div>
+       <div className="container">
+         {recipe.length ? 
+         recipe.map( (recipeObj) => (
+         
+         <Foodcard recipe= {recipeObj.recipe}/>
+          )): <Placeholder />}
+        
+        </div>
     </div>
   );
 }
