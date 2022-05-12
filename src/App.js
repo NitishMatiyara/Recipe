@@ -31,7 +31,7 @@ function App() {
     <>
     <div>
       <div className="head">
-      <img className="logo" src="images/foodie.png" alt="" width="30%" />
+      <img className="logo" src="images/foodie.png" alt="" />
       <nav className="navbar navbar-light" >
       <div className="container-fluid">
           <a className="navbar-brand">Find Recipe</a>
